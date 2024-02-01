@@ -1,9 +1,17 @@
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+// page
+import Main from "./pages/Main";
+
+// style
+import styled from "styled-components";
+import globalStyles from "./styles/globalStyles";
 
 function App() {
   return (
-    <div className="App">
-      <p>test</p>
-    </div>
+    <BrowserRouter>
+      <Main />
+    </BrowserRouter>
   );
 }
 
