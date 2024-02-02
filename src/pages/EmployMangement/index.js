@@ -1,1 +1,1 @@
-export { default as ManagerView } from './ManagerView';
+export { default as EmployView } from './EmployView';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ManagerView = () => {
+const EmployView = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const ManagerView = () => {
     );
 };
 
-export default ManagerView;
+export default EmployView;
