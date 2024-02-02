@@ -1,16 +1,40 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Controller } from "react-hook-form";
 
 // page
 import Main from "./pages/Main";
+import { Login } from "./pages/Login/index";
+import { EmployManagement } from "./pages/EmployMangement";
 
-// style
+// style & Library
 import styled from "styled-components";
 import globalStyles from "./styles/globalStyles";
 
 function App() {
   return (
     <BrowserRouter>
-      <Main />
+      <globalStyles />
+      {/* <ControllerLink>토큰이 있다면 사용할 컴포넌트</ControllerLink> */}
+      <Routes>
+        {/* 로그인 페이지 */}
+        <Route>
+          <Route path="/" element={<Login />}/>
+        </Route>
+        {/* 메인 화면 -> Layout은 mainLayout으로 빠져야 함 */}
+        <Route>
+          <Route path="/main" element={<Main />} />
+        </Route>
+        {/* 메뉴 관리 -> 공통 Layout이 element가 되어야 함 */}
+        <Route>
+        {/* 자동차 관리 */}
+          <Route path="/vihicleManagement/">
+            <Route path=""  />
+          </Route>
+        {/* 유저 관리 */}
+
+        {/* 직원 관리 */}
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
