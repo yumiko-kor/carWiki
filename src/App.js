@@ -10,18 +10,19 @@ import { EmployView } from "./pages/EmployMangement";
 
 // style & Library
 import styled from "styled-components";
-import globalStyles from "./styles/globalStyles";
+import { MainLayout, LoginLayout, Layout } from "./components/common/layout";
+import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
   return (
     <BrowserRouter>
-      <globalStyles />
+      <GlobalStyles />
       {/* <ControllerLink>토큰이 있다면 사용할 컴포넌트</ControllerLink> */}
       
       <Routes>
         {/* 로그인 페이지 */}
-        <Route>
-          <Route path="/" element={<Login />}/>
+        <Route element={<LoginLayout />}>
+          <Route path="/" element={<Login />} />
         </Route>
 
         {/* 메인 화면 -> Layout은 mainLayout으로 빠져야 함 */}
@@ -33,19 +34,19 @@ function App() {
         <Route>
 
         {/* 자동차 관리 */}
-          <Route path="/carmanagement/">
+          {/* <Route path="/carmanagement/">
             <Route path="/carview"  />
-          </Route>
+          </Route> */}
           
         {/* 유저 관리 */}
-          <Route path="/usermanagement">
+          {/* <Route path="/usermanagement">
             <Route path="/userview"/>
-          </Route>
+          </Route> */}
 
         {/* 직원 관리 */}
-          <Route path="/employmanagement">
+          {/* <Route path="/employmanagement">
             <Route path="/employview"/>
-          </Route>
+          </Route> */}
         </Route>
       </Routes>
     </BrowserRouter>
