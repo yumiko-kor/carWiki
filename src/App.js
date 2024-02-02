@@ -11,12 +11,12 @@ import { EmployView } from "./pages/EmployMangement";
 // style & Library
 import styled from "styled-components";
 import { MainLayout, LoginLayout, Layout } from "./components/common/layout";
-import GlobalStyle from "./styles/GlobalStyle";
+import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
   return (
     <BrowserRouter>
-      <GlobalStyle />
+      <GlobalStyles />
       {/* <ControllerLink>토큰이 있다면 사용할 컴포넌트</ControllerLink> */}
       
       <Routes>
