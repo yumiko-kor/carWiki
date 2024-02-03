@@ -20,7 +20,7 @@ const LoginMain = () => {
     );
 };
 
-export const LeftBar = styled.section`
+export const LeftBar = styled.div`
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -46,11 +46,22 @@ export const Logo = styled.img`
 
 export const Bg = styled.div`
     display: block;
-    background: url(${BgImg}) 180% no-repeat;
+    background: url(${BgImg}) 50% no-repeat;
     width: 80%;
     max-width: 530px;
     height: 500px;
+    transform: translate(0, -50%);
+    animation: move 1.7s infinite ease-in-out alternate;
+    @keyframes move{
+        from{
+            transform: translatex(0px);
+        }
+        to{
+            transform: translatex(8px);
+        }
+    }
 `;
+
 
 export const Line1 = styled.span`
     font-size: 1.8em;

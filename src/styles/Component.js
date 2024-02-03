@@ -10,11 +10,12 @@ export const TextBox = styled.div`
 
 export const TextInput = styled.input`
 	border: 1px solid #e0e0e0;
-	border-radius: 15px;
+	border-radius: ${props => props.radius || '15px'};
 	width: ${props => props.width || '100%'};
 	padding: ${props => props.$padding || '5px 15px'};
 	line-height: 18px;
 	font-size: ${props => props.fontSize || '14px'};
+	font-weight: ${props => props.fontWeight || 'lighter'};
 	&::placeholder {
 		color: #B1B1B1;
 	}
@@ -23,6 +24,6 @@ export const TextInput = styled.input`
 		background: #f6f6f6;
 	}
 	&:focus {
-		border: 2px solid #72E6FF;
+		border: ${props => props.border || "2px solid #72E6FF"};
 	}
 `

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 // component
 import LoginForm from "./LoginForm";
+import RegistAccount from "./RegistAccount";
 
 const LoginContent = () => {
     return (
@@ -10,13 +11,14 @@ const LoginContent = () => {
             {/* 상단 디자인 */}
             <TextBox>
                 <Copy1>관리자 계정으로 로그인 해주세요.</Copy1>
-                <Copy2>관리자 수락은 매장에 문의해주세요.</Copy2>
+                <Copy2>관리자 계정 승인은 매장에 문의해주세요.</Copy2>
             </TextBox>
 
             {/* 로그인 폼 */}
             <LoginForm />
 
             {/* 하단 회원가입 api 연동 */}
+            <RegistAccount />
         </RightBar>
     );
 };
@@ -37,7 +39,7 @@ export const TextBox = styled.div`
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin: 12em 0 0 5em;
+    margin: 9em 0 0 5em;
     color: #464849;
 `;
 
