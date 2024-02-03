@@ -13,5 +13,3 @@ import styled, { css } from "styled-components";
  * @param {string} hoverColor 버튼 호버 배경 색상
  * @param {object} props 폰트 관련 속성
  */
-
-    
