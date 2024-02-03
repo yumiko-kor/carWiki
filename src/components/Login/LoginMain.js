@@ -46,10 +46,11 @@ export const Logo = styled.img`
 
 export const Bg = styled.div`
     display: block;
-    background: url(${BgImg}) 180% no-repeat;
-    width: 70%;
+    background: url(${BgImg}) 50% no-repeat;
+    width: 80%;
     max-width: 530px;
     height: 500px;
+    transform: translate(0, -50%);
     animation: move 1.7s infinite ease-in-out alternate;
     @keyframes move{
         from{
