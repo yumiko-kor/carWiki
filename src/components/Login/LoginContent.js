@@ -39,7 +39,7 @@ export const TextBox = styled.div`
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin: 12em 0 0 5em;
+    margin: 9em 0 0 5em;
     color: #464849;
 `;
 

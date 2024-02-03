@@ -37,6 +37,8 @@ const InfoText = styled.span`
     margin: auto;
     margin-right: 5px;
     color: #B6B6B6;
+    font-weight: 200;
+    font-size: 20px;
 `;
 
 const ImgBox = styled.div`

@@ -65,6 +65,7 @@ const LoginForm = () => {
 
                         > * ID</LabelName>
                         <TextInput
+                            radius="50px"
                             fontSize="15px" 
                             type="text"
                             $padding="16px 20px" 
@@ -77,6 +78,7 @@ const LoginForm = () => {
                     <LabelWrapper>
                         <LabelName> * PW</LabelName>
                         <TextInput
+                            radius="50px"
                             fontSize="15px" 
                             type="password"
                             $padding="16px 20px" 
@@ -89,7 +91,7 @@ const LoginForm = () => {
                 </InputWrapper>
                 <BtnWrapper>
                     <ErrorText>{errorText}</ErrorText>
-                    <Button type="submit" text="로그인" theme="login"/>
+                    <Button width="95%" type="submit" text="로그인" theme="login"/>
                 </BtnWrapper>
             </FormWrapper>
         </>
@@ -97,7 +99,7 @@ const LoginForm = () => {
 };
 
 const FormWrapper = styled.form`
-	margin-top: 20%;
+	margin-top: 15%;
 `;
 
 const InputWrapper = styled.div`
@@ -130,6 +132,7 @@ const BtnWrapper = styled.div`
 `;
 
 const ErrorText = styled.span`
+    width: 90%;
     margin: 0 1em 1.2em;
     color: #FE6E6E;
 `
