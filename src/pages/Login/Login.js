@@ -19,7 +19,7 @@ const Login = () => {
             </LeftBar>
             
             <RightBar>
-
+                {/* 로그인 폼 추가 */}
 
 
             </RightBar>
@@ -70,12 +70,14 @@ export const Line1 = styled.span`
     font-size: 1.8em;
     padding-bottom: 30px;
     color: #80C9D9;
+    font-weight: lighter;
 `;
 
 export const Line2 = styled.span`
     font-size: 2em;
     color: #47C3DE;
-
+    font-weight: 300;
+    text-decoration: underline;
 `;
 
 export const RightBar = styled.div`
