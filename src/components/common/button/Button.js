@@ -45,7 +45,7 @@ const Button = ({ text, type = "button", disabled, handleClick, theme, size, wid
 const Wrapper = styled.div`
 	display: ${props => props.display || 'inline-block'};
 	width: ${props => props.width};
-	text-align: center;
+	/* text-align: center; */
 `;
 
 const sizes = {

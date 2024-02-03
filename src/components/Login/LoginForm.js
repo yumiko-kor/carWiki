@@ -15,19 +15,20 @@ import { TextInput } from "../../styles/Component";
 const LoginForm = () => {
     const navigate = useNavigate();
 
+    const token = "test";
+
+    const [ errorText, setErrorText ] = useState("");
     const [ authInfo, setAuthInfo ] = useState({
         adminId : String(AdminAuth.map((data) => (data.id))),
         adminPw : String(AdminAuth.map((data) => (data.pw)))
     })
 
-    console.log(authInfo)
-
-
     // useForm
     const { 
         register, 
         handleSubmit, 
-        watch 
+        watch,
+        formState: { errors }
     } = useForm({
         resolver: yupResolver(LoginValidation),
         mode: 'onSubmit',
@@ -43,11 +44,14 @@ const LoginForm = () => {
         ? authCheck = true : authCheck = false;
 
         if(authCheck) {
-            sessionStorage.setItem('token', values.id);
+            sessionStorage.setItem('token', token);
             navigate('./main')
+        }else {
+            setErrorText("등록되지 않은 회원입니다.");
         }
-
     }
+
+    console.log("errors", errors)
 
 
 
@@ -56,14 +60,17 @@ const LoginForm = () => {
         {/* 로그인 폼 추가 */}
             <FormWrapper onSubmit={handleSubmit(onSubmit)} >
                 <InputWrapper>
-                    <LabelWrapper>
-                        <LabelName> * ID</LabelName>
+                    <LabelWrapper >
+                        <LabelName
+
+                        > * ID</LabelName>
                         <TextInput
                             fontSize="15px" 
                             type="text"
                             $padding="16px 20px" 
                             name="id" 
-                            placeholder="ex) admin@carwiki.com"
+                            placeholder= "ex) admin@carwiki.com"
+                            errors={errors}
                             {...register('id')}
                         />
                     </LabelWrapper>
@@ -74,17 +81,17 @@ const LoginForm = () => {
                             type="password"
                             $padding="16px 20px" 
                             name="pw" 
+                            errors={errors}
                             placeholder="패스워드를 입력해주세요."
                             {...register('pw')}
                         />
                     </LabelWrapper>
                 </InputWrapper>
                 <BtnWrapper>
+                    <ErrorText>{errorText}</ErrorText>
                     <Button type="submit" text="로그인" theme="login"/>
                 </BtnWrapper>
             </FormWrapper>
-
-
         </>
     );
 };
@@ -102,20 +109,30 @@ const InputWrapper = styled.div`
 `;
 
 const LabelWrapper = styled.div`
-    margin: 1.2em 0;
+    margin: 1em 0;
+    &:focus-within label {
+        color: #72E6FF;
+    }
 `
 
-const LabelName = styled.div`
+const LabelName = styled.label`
+    display: inline-block;
     font-size: 1.3em;
     color: #666666;
-    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
 `;
 
 const BtnWrapper = styled.div`
     display: flex;
-    justify-content: right;
-    margin: 2em 80px;
+    flex-direction: column;
+    text-align: right;
+    margin: 1.2em 80px;
 `;
+
+const ErrorText = styled.span`
+    margin: 0 1em 1.2em;
+    color: #FE6E6E;
+`
 
 
 export default LoginForm;

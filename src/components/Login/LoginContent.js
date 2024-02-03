@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 // component
 import LoginForm from "./LoginForm";
+import RegistAccount from "./RegistAccount";
 
 const LoginContent = () => {
     return (
@@ -17,6 +18,7 @@ const LoginContent = () => {
             <LoginForm />
 
             {/* 하단 회원가입 api 연동 */}
+            <RegistAccount />
         </RightBar>
     );
 };

@@ -23,6 +23,6 @@ export const TextInput = styled.input`
 		background: #f6f6f6;
 	}
 	&:focus {
-		border: 2px solid #72E6FF;
+		border: ${props => props.border || "2px solid #72E6FF"};
 	}
 `
