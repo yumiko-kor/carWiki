@@ -1,25 +1,60 @@
 // Library
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { AdminAuth } from "../../assets/data/AdminAuth";
+import { LoginValidation } from "./LoginValidation";
+import { yupResolver } from '@hookform/resolvers/yup';
 
 // style
 import styled from "styled-components";
+import Button from "../common/button/Button";
 import { TextInput } from "../../styles/Component";
 
 
 const LoginForm = () => {
+    const navigate = useNavigate();
+
     const [ authInfo, setAuthInfo ] = useState({
-        adminId : AdminAuth.map((data) => (data.id)),
-        adminPw : AdminAuth.map((data) => (data.pw))
+        adminId : String(AdminAuth.map((data) => (data.id))),
+        adminPw : String(AdminAuth.map((data) => (data.pw)))
     })
+
     console.log(authInfo)
+
+
+    // useForm
+    const { 
+        register, 
+        handleSubmit, 
+        watch 
+    } = useForm({
+        resolver: yupResolver(LoginValidation),
+        mode: 'onSubmit',
+    });
+
+    const values = watch();
+
+    const onSubmit = () => {
+        let authCheck = false;
+
+        (values.id === authInfo.adminId) &&
+        (values.pw === authInfo.adminPw)
+        ? authCheck = true : authCheck = false;
+
+        if(authCheck) {
+            sessionStorage.setItem('token', values.id);
+            navigate('./main')
+        }
+
+    }
+
 
 
     return (
         <>
         {/* 로그인 폼 추가 */}
-            <FormWrapper>
+            <FormWrapper onSubmit={handleSubmit(onSubmit)} >
                 <InputWrapper>
                     <LabelWrapper>
                         <LabelName> * ID</LabelName>
@@ -27,8 +62,9 @@ const LoginForm = () => {
                             fontSize="15px" 
                             type="text"
                             $padding="16px 20px" 
-                            name="email" 
+                            name="id" 
                             placeholder="ex) admin@carwiki.com"
+                            {...register('id')}
                         />
                     </LabelWrapper>
                     <LabelWrapper>
@@ -37,13 +73,15 @@ const LoginForm = () => {
                             fontSize="15px" 
                             type="password"
                             $padding="16px 20px" 
-                            name="email" 
+                            name="pw" 
                             placeholder="패스워드를 입력해주세요."
+                            {...register('pw')}
                         />
                     </LabelWrapper>
                 </InputWrapper>
-
-                <LoginButton>로그인</LoginButton>
+                <BtnWrapper>
+                    <Button type="submit" text="로그인" theme="login"/>
+                </BtnWrapper>
             </FormWrapper>
 
 
@@ -73,8 +111,10 @@ const LabelName = styled.div`
     padding-bottom: 0.5em;
 `;
 
-const LoginButton = styled.button`
-
+const BtnWrapper = styled.div`
+    display: flex;
+    justify-content: right;
+    margin: 2em 80px;
 `;
 
 

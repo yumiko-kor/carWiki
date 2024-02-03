@@ -10,7 +10,7 @@ const LoginContent = () => {
             {/* 상단 디자인 */}
             <TextBox>
                 <Copy1>관리자 계정으로 로그인 해주세요.</Copy1>
-                <Copy2>관리자 수락은 매장에 문의해주세요.</Copy2>
+                <Copy2>관리자 계정 승인은 매장에 문의해주세요.</Copy2>
             </TextBox>
 
             {/* 로그인 폼 */}
