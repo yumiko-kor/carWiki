@@ -44,3 +44,8 @@ export const LinkItem = styled.a`
     padding-top: 0px;
     padding-bottom: 7px;
 `;
+
+export const Logo = styled.img`    
+display: block;
+width: 2em;
+`

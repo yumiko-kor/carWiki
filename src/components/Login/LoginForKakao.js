@@ -1,7 +1,7 @@
 //style
 import styled from "styled-components";
 
-import { LinkItem } from "../../styles/Component";
+import { LinkItem, Logo } from "../../styles/Component";
 import kakao  from "../../assets/img/icon/kakao.png"
 
 const LoginForKakao = () => {
@@ -10,10 +10,7 @@ const LoginForKakao = () => {
     const LoginHandler = () => {
         window.location.href = link;
     }
-
-    console.log(link)
-
-
+    
     return (
         <LinkItem onClick={LoginHandler}>
             <Logo src={kakao} />
@@ -21,9 +18,5 @@ const LoginForKakao = () => {
     ); 
 };
 
-const Logo = styled.img`    
-    display: block;
-    width: 2em;
-`
 
 export default LoginForKakao;
