@@ -15,7 +15,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/carwiki">
       <GlobalStyles />
       {/* <ControllerLink>토큰이 있다면 사용할 컴포넌트</ControllerLink> */}
       
