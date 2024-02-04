@@ -33,7 +33,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://yumiko-kor.github.io/",
+  "homepage": "https://yumiko-kor.github.io/carwiki/",
   "eslintConfig": {
     "extends": [
       "react-app",
