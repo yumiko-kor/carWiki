@@ -22,7 +22,7 @@ function App() {
       <Routes>
         {/* 로그인 페이지 */}
         <Route element={<LoginLayout />}>
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
         </Route>
 
         {/* 메인 화면 -> Layout은 mainLayout으로 빠져야 함 */}
