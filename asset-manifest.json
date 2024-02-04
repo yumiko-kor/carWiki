@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/static/js/main.ceb597c1.js",
-    "static/media/loginBg.png": "/static/media/loginBg.538025d4cd0070a5828c.png",
-    "static/media/kakao.png": "/static/media/kakao.a4d62c3d9e64db4f043e.png",
-    "static/media/google.png": "/static/media/google.3b44a32b77f4074c1956.png",
-    "static/media/naver.png": "/static/media/naver.17dbebe1083ef8680797.png",
-    "index.html": "/index.html",
-    "main.ceb597c1.js.map": "/static/js/main.ceb597c1.js.map"
+    "main.js": "/carwiki/static/js/main.a17aeae8.js",
+    "static/media/loginBg.png": "/carwiki/static/media/loginBg.538025d4cd0070a5828c.png",
+    "static/media/kakao.png": "/carwiki/static/media/kakao.a4d62c3d9e64db4f043e.png",
+    "static/media/google.png": "/carwiki/static/media/google.3b44a32b77f4074c1956.png",
+    "static/media/naver.png": "/carwiki/static/media/naver.17dbebe1083ef8680797.png",
+    "index.html": "/carwiki/index.html",
+    "main.a17aeae8.js.map": "/carwiki/static/js/main.a17aeae8.js.map"
   },
   "entrypoints": [
-    "static/js/main.ceb597c1.js"
+    "static/js/main.a17aeae8.js"
   ]
 }
