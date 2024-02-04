@@ -10,7 +10,7 @@ import { TextBox } from "../../styles/Component";
 const LoginMain = () => {
     return (
         <LeftBar>
-            <Logo src={LogoIcon} alr="carwiki" />
+            <Logo src={LogoIcon} alt="carwiki" />
             <TextBox $margin="0 6em 0" >
                 <Line1>자동차 관리 업체를 위한</Line1>
                 <Line2>차량 관리 통합 서비스</Line2>

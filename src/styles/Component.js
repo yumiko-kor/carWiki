@@ -27,3 +27,20 @@ export const TextInput = styled.input`
 		border: ${props => props.border || "2px solid #72E6FF"};
 	}
 `
+
+export const LinkItem = styled.a`
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: none;
+    background: transparent;
+    padding: 15px;
+    padding-top: 0px;
+    padding-bottom: 7px;
+`;

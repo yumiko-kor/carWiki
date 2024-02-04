@@ -1,8 +1,10 @@
+// component
+import LoginForKakao from "./LoginForKakao";
+
 //style
 import styled from "styled-components";
 
 //img
-import kakao  from "../../assets/img/icon/kakao.png"
 import google from "../../assets/img/icon/google.png"
 import naver from "../../assets/img/icon/naver.png"
 
@@ -12,9 +14,7 @@ const RegistAccount = () => {
             <ContentWrapper>
                 <InfoText>Create Account with</InfoText>
                 <ImgBox>
-                    <LinkItem>
-                        <Logo src={kakao} />
-                    </LinkItem>
+                    <LoginForKakao />
                     <LinkItem>
                         <Logo src={google} />
                     </LinkItem>

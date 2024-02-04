@@ -71,7 +71,7 @@ const LoginForm = () => {
                             $padding="16px 20px" 
                             name="id" 
                             placeholder= "ex) admin@carwiki.com"
-                            errors={errors}
+                            // errors={errors}
                             {...register('id')}
                         />
                     </LabelWrapper>
@@ -83,7 +83,7 @@ const LoginForm = () => {
                             type="password"
                             $padding="16px 20px" 
                             name="pw" 
-                            errors={errors}
+                            // errors={errors}
                             placeholder="패스워드를 입력해주세요."
                             {...register('pw')}
                         />
