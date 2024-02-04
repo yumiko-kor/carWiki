@@ -32,7 +32,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://bam-j.github.io/pages/",
+  "homepage": "https://yumiko-kor.github.io/",
   "eslintConfig": {
     "extends": [
       "react-app",
