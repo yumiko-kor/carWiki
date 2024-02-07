@@ -14,11 +14,11 @@ import UseScript from "../../hooks/UseScript";
 
 
 const LoginForGoogle = () => {
-    const clientId = `${process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID}`;
+    const CLIENT_ID = `${process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID}`;
     
     UseScript('https://accounts.google.com/gsi/client', () => {
         window.google.accounts.id.initialize({
-            client_id: clientId
+            client_id: CLIENT_ID
         });
         window.google.accounts.id.renderButton({
             display: 'none',
@@ -32,12 +32,12 @@ const LoginForGoogle = () => {
 
     return (
         <>
-            <GoogleOAuthProvider clientId={clientId}>
+            <GoogleOAuthProvider clientId={CLIENT_ID}>
                 <LinkItem>
                     <Logo id="google-login-api" src={google} onClick={onClickGooglelogin} />
                     <LoginWrap>
                         <GoogleLogin
-                            clientId={clientId}
+                            clientId={CLIENT_ID}
                             onSuccess={credentialResponse => {
                             console.log(credentialResponse);
                             // 해당 부분은 후에 들어오는 토큰에 대해서 디코딩 하는 부분이다. 

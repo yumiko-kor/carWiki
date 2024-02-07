@@ -1,12 +1,8 @@
 // component
-import { LoginForKakao, LoginForGoogle } from "./index";
+import { LoginForKakao, LoginForGoogle, LoginNaver } from "./index";
 
 //style
 import styled from "styled-components";
-
-//img
-import google from "../../assets/img/icon/google.png"
-import naver from "../../assets/img/icon/naver.png"
 
 const RegistAccount = () => {
     return (
@@ -16,9 +12,7 @@ const RegistAccount = () => {
                 <ImgBox>
                     <LoginForKakao />
                     <LoginForGoogle />
-                    <LinkItem>
-                        <Logo src={naver} />
-                    </LinkItem>
+                    <LoginNaver />
                 </ImgBox>
             </ContentWrapper>
         </>
