@@ -1,5 +1,5 @@
 // component
-import LoginForKakao from "./LoginForKakao";
+import { LoginForKakao, LoginForGoogle } from "./index";
 
 //style
 import styled from "styled-components";
@@ -15,9 +15,7 @@ const RegistAccount = () => {
                 <InfoText>Create Account with</InfoText>
                 <ImgBox>
                     <LoginForKakao />
-                    <LinkItem>
-                        <Logo src={google} />
-                    </LinkItem>
+                    <LoginForGoogle />
                     <LinkItem>
                         <Logo src={naver} />
                     </LinkItem>
