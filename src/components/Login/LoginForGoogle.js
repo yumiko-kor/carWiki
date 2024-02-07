@@ -15,7 +15,7 @@ import UseScript from "../../hooks/UseScript";
 
 const LoginForGoogle = () => {
     const clientId = `${process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID}`;
-
+    
     UseScript('https://accounts.google.com/gsi/client', () => {
         window.google.accounts.id.initialize({
             client_id: clientId
