@@ -2,15 +2,34 @@ import styled from "styled-components";
 
 
 // import { Home, Car, User, Employ } from '../../../assets/img';
-import home from "../../../assets/img/icon/house.png"
+import { MenuList } from "../../../assets/data/MenuList";
+import home from "../../../assets/img/icon/house.png";
 
 const Navi = () => {
+
+    MenuList.map((data) => {
+        console.log(data.title)
+        console.log(data.link)
+    })
+
+    MenuList.map((item, index) => {
+        console.log("두번째", item.title)
+    })
+
     return (
         <NaviContainer>
-            <NaviItem>
-                <NaviLogo src={home}></NaviLogo>
-                <NaviTitle>홈</NaviTitle>
-            </NaviItem>
+            <ul>
+                {MenuList.map((item, index) => {
+                    return(
+                        <li key={index}>
+                            <NaviItem>
+                                <NaviLogo src={home}></NaviLogo>
+                                <NaviTitle>{item.title}</NaviTitle>
+                            </NaviItem>
+                        </li>
+                    )
+                })}
+            </ul>
         </NaviContainer>
     );
 };
