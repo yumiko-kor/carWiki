@@ -30,9 +30,9 @@ export const LeftBar = styled.div`
     background-image: linear-gradient(180deg, #FAFDFD, #DBF3F8);
     background-size: cover;
 	min-height: 100vh;
+    height: 100%;
     min-width: 50%;
     max-width: 50%;
-    height: 100%;
     margin: 0;
     padding: 0;
 `;

@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 // input & textArea
 export const Container = styled.div`
     display: flex;
+    flex-direction: ${props => props.direction || "none"};
 `;
 
 export const TextBox = styled.div`
@@ -19,13 +20,13 @@ export const TextInput = styled.input`
 	padding: ${props => props.$padding || '5px 15px'};
 	line-height: 18px;
 	font-size: ${props => props.fontSize || '14px'};
-	font-weight: ${props => props.fontWeight || 'lighter'};
+	font-weight: ${props => props.fontWeight || '350'};
 	&::placeholder {
 		color: #B1B1B1;
 	}
 	&:disabled {
 		color: #cccccc;
-		background: #f6f6f6;
+		background: #ffffff;
 	}
 	&:focus {
 		border: ${props => props.border || "2px solid #72E6FF"};
@@ -54,12 +55,28 @@ export const Logo = styled.img`
     width: ${props => props.width || "2em"};
 `;
 
+export const HeaderContainer = styled.header`
+    background: #ffffff;
+    width: 100%;
+    height: 112px;
+	padding: 3em;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	word-break: break-all;
+	justify-content: space-between;
+	align-items: center;
+`;
+
 export const FlexContent = styled.div`
     display: flex;
     justify-content: space-between;
 `;
 
 export const TextS = styled.span`
+    display : flex;
+    justify-content : center;
+    align-items : center;
 	line-height: 18px;
     padding: ${props => props.$padding || "0"};
     color: ${props => props.color || "#464849"};
