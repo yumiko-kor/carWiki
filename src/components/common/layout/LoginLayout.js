@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 // 컴포넌트
-// import { Container } from "../../../styles/components";
+import { Container } from "../../../styles/Component";
 
 const LoginLayout = () => {
     return (
@@ -12,10 +12,5 @@ const LoginLayout = () => {
         </Container>
     );
 };
-
-export const Container = styled.div`
-    display: flex;
-`;
-
 
 export default LoginLayout;

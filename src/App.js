@@ -26,12 +26,12 @@ function App() {
         </Route>
 
         {/* 메인 화면 -> Layout은 mainLayout으로 빠져야 함 */}
-        <Route>
-          <Route path="/main" element={<Main />} />
-        </Route>
-
         {/* 메뉴 관리 -> 공통 Layout이 element가 되어야 함 */}
-        <Route>
+        <Route element={<Layout />}>
+          <Route>
+            <Route path="/main" element={<Main />} />
+          </Route>
+
 
         {/* 자동차 관리 */}
           {/* <Route path="/carmanagement/">

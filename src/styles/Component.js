@@ -1,6 +1,10 @@
 import styled, { css } from "styled-components";
 
 // input & textArea
+export const Container = styled.div`
+    display: flex;
+`;
+
 export const TextBox = styled.div`
     display: flex;
     flex-direction: column;
@@ -46,6 +50,20 @@ export const LinkItem = styled.a`
 `;
 
 export const Logo = styled.img`    
-display: block;
-width: 2em;
-`
+    display: block;
+    width: ${props => props.width || "2em"};
+`;
+
+export const FlexContent = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+
+export const TextS = styled.span`
+	line-height: 18px;
+    padding: ${props => props.$padding || "0"};
+    color: ${props => props.color || "#464849"};
+	font-size: ${props => props.fontSize || '14px'};
+	font-weight: ${props => props.fontWeight || '350'};
+    text-decoration: ${props => props.$underline || `none`};
+`;
