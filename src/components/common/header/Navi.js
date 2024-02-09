@@ -40,13 +40,13 @@ const NaviContainer = styled.div`
 	width: 204px;
 	min-height: 89vh;
     height: 100%;
-	flex: 0 0 280px;
+	flex: 0 0 204px;
 	background: #ffffff;
 	align-self: stretch;
 `;
 
 const NaviItem = styled.div`
-    width: 177px;
+	width: 204px;
     height: 60px;
     display: flex;
     justify-content : flex-start;

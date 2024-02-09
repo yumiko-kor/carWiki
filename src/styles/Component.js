@@ -4,8 +4,8 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
 	background: url(${props => props.$bgimg}) 50% 50%;
 	background-size: cover;
-	min-height: 100vh;
-	height: 100%;
+	/* min-height: 100vh;
+	height: 100%; */
 	padding: ${props => props.$padding || 0};
 	display: ${props => props.type || "flex"};
 	${props => {
@@ -17,19 +17,11 @@ export const Container = styled.div`
     flex-direction: ${props => props.direction || "none"};
 `;
 
-export const HeaderContainer1 = styled.div`
-	width: 280px;
-	flex: 0 0 280px;
-	background: #666666;
-	min-height: 100vh;
-	align-self: stretch;
-`;
-
 export const ContentContainer = styled.div`
-	min-height: calc(100vh - 58px);
+	min-height: 89vh;
 	width: 100%;
 	padding: 55px 60px;
-	background: #fff;
+	background: rgba(178, 221, 227, 0.07);
 `;
 
 export const FullContainer = styled.div`
