@@ -6,16 +6,6 @@ import { SideBarData } from "../../../assets/data/SideBarData";
 
 const Navi = () => {
 
-    SideBarData.map((data) => {
-        console.log(
-            data.path,
-
-            "스플리트 테스트", data.path.substr(1).split("-",1)+"B"
-
-            , data.icon
-        )
-    })
-
     return (
         <NaviContainer>
             <ul>

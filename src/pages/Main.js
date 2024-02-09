@@ -1,13 +1,9 @@
-
-// style
-import styled from "styled-components";
+import { MainLayout } from "../components/common/layout"
 
 const Main = () => {
-    
-    
     return (
         <>
-            <div>테스트 입니다.</div>  
+            <MainLayout />
         </>
     );
 };

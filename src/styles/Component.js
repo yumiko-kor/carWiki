@@ -79,6 +79,13 @@ export const Logo = styled.img`
     width: ${props => props.width || "2em"};
 `;
 
+export const Icon = styled.img`
+    display: block;
+    margin: ${props => props.margin || "auto"};
+    width: ${props => props.width || "25px"};
+    height: ${props => props.height || "25px"};
+`;
+
 export const HeaderContainer = styled.header`
     background: #ffffff;
     width: 100%;

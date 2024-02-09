@@ -1,10 +1,14 @@
-import React from 'react';
+// 컴포넌트
+import { Container } from "../../../styles/Component"; 
+import { MainSearchBar, RateContent, CarRateContent } from "../../main";
 
 const MainLayout = () => {
     return (
-        <div>
-            
-        </div>
+        <Container direction="column" type="grid" $justify="center" >
+            <MainSearchBar />
+            <RateContent />
+            <CarRateContent />
+        </Container>
     );
 };
 
