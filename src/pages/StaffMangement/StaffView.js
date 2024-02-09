@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EmployView = () => {
+const StaffView = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const EmployView = () => {
     );
 };
 
-export default EmployView;
+export default StaffView;

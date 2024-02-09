@@ -1,31 +1,33 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 
-// import { Home, Car, User, Employ } from '../../../assets/img';
-import { MenuList } from "../../../assets/data/MenuList";
-import home from "../../../assets/img/icon/house.png";
+import { SideBarData } from "../../../assets/data/SideBarData";
 
 const Navi = () => {
 
-    MenuList.map((data) => {
-        console.log(data.title)
-        console.log(data.link)
-    })
+    SideBarData.map((data) => {
+        console.log(
+            data.path,
 
-    MenuList.map((item, index) => {
-        console.log("두번째", item.title)
+            "스플리트 테스트", data.path.substr(1).split("-",1)+"B"
+
+            , data.icon
+        )
     })
 
     return (
         <NaviContainer>
             <ul>
-                {MenuList.map((item, index) => {
+                {SideBarData.map((item, index) => {
                     return(
                         <li key={index}>
-                            <NaviItem>
-                                <NaviLogo src={home}></NaviLogo>
-                                <NaviTitle>{item.title}</NaviTitle>
-                            </NaviItem>
+                            <NavLink to={item.path}>
+                                <NaviItem>
+                                    <NaviLogo src={item.icon}></NaviLogo>
+                                    <NaviTitle>{item.title}</NaviTitle>
+                                </NaviItem>
+                            </NavLink>
                         </li>
                     )
                 })}
@@ -50,15 +52,26 @@ const NaviItem = styled.div`
     justify-content : flex-start;
     align-items : center;
     vertical-align: middle;
-    border-left : thick solid #54B6CB;
     padding-left: 20px;
-    background-image: linear-gradient(90deg, rgba(223, 249, 255, 1), rgba(93, 226, 255, 0));
-    background-size: cover;
+
+	&:hover,
+	&.active {
+        border-left : thick solid #54B6CB;
+        background-image: linear-gradient(90deg, rgba(223, 249, 255, 1), rgba(93, 226, 255, 0));
+        background-size: cover;
+	}
+	&.active ~ ul {
+		display: block;
+	}
+	&.active:before {
+        background-image: linear-gradient(90deg, rgba(223, 249, 255, 1), rgba(93, 226, 255, 0));
+        background-size: cover;
+	}
 `;
 
 const NaviLogo = styled.img`
-    width: 20px;
-    height: 20px;
+    width: 23px;
+    height: 23px;
     display : flex;
     justify-content : center;
     align-items : center;
@@ -73,8 +86,13 @@ const NaviTitle = styled.span`
     padding: 0 10px;
     margin: 0 10px;
     color: #464849;
-	font-size: 20px;
-	font-weight: 350;
+	font-size: 14px;
+	font-weight: 300;
+
+    &:hover
+    &.active {
+        color: #1EA1CA;
+	}
 `;
 
 

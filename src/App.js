@@ -6,7 +6,7 @@ import Main from "./pages/Main";
 import { Login } from "./pages/Login/index";
 import { CarView } from "./pages/CarManagement";
 import { UserView } from "./pages/UserMangement"
-import { EmployView } from "./pages/EmployMangement";
+import { StaffView } from "./pages/StaffMangement";
 
 // style & Library
 import styled from "styled-components";
@@ -32,21 +32,20 @@ function App() {
             <Route path="/main" element={<Main />} />
           </Route>
 
-
         {/* 자동차 관리 */}
-          {/* <Route path="/carmanagement/">
-            <Route path="/carview"  />
-          </Route> */}
+          <Route path="/car-management/">
+            <Route path="carview"  />
+          </Route>
           
         {/* 유저 관리 */}
-          {/* <Route path="/usermanagement">
-            <Route path="/userview"/>
-          </Route> */}
+          <Route path="/user-management/">
+            <Route path="userview"/>
+          </Route>
 
         {/* 직원 관리 */}
-          {/* <Route path="/employmanagement">
-            <Route path="/employview"/>
-          </Route> */}
+          <Route path="/staff-management/">
+            <Route path="staffview"/>
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
