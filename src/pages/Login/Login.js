@@ -1,5 +1,5 @@
 // 컴포넌트
-import { LoginMain, LoginContent } from "../../components/Login";
+import { LoginMain, LoginContent } from "../../components/login";
 
 const Login = () => {
     return (
