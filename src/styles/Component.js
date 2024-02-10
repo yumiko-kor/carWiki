@@ -101,7 +101,8 @@ export const HeaderContainer = styled.header`
 
 export const FlexContent = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content:${props => props.$justify || 'space-between'};
+    padding: ${props => props.$padding};
 `;
 
 export const TextS = styled.span`
@@ -114,4 +115,17 @@ export const TextS = styled.span`
 	font-size: ${props => props.fontSize || '14px'};
 	font-weight: ${props => props.fontWeight || '350'};
     text-decoration: ${props => props.$underline || `none`};
+`;
+
+export const TitleText = styled.span`
+	line-height: 18px;
+    color: ${props => props.color || "#464849"};
+    font-size: ${props => props.fontSize || '20px'};
+	font-weight: ${props => props.fontWeight || '350'};
+`;
+
+export const InfoText = styled.span`
+    color: ${props => props.color || "#464849"};
+    font-size: ${props => props.fontSize || '16px'};
+	font-weight: ${props => props.fontWeight || '350'};
 `;

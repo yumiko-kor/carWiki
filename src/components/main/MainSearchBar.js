@@ -1,7 +1,7 @@
 //library
 
 //component
-import { FlexContent, Icon } from "../../styles/Component"; 
+import { FlexContent, Icon, TitleText } from "../../styles/Component"; 
 
 // style & img
 import styled from "styled-components";
@@ -22,7 +22,7 @@ const MainSearchBar = () => {
     return (
         <FlexContent>
             <LeftContainer>
-                <InfoText>차량 정보를 검색해보세요.</InfoText>
+                <TitleText>차량 정보를 검색해보세요.</TitleText>
                 <SearchBarContainer>
                     <SearchInput placeholder="검색어를 입력해주세요."></SearchInput>
                     <ButtonWrap onClick={HandleSearch}>
@@ -65,11 +65,6 @@ const SearchBarContainer = styled.div`
     margin: 1.5em 0;
 `;
 
-const InfoText = styled.span`
-	line-height: 18px;
-    color: #464849;
-    font-size: 20px;
-`;
 
 const SearchInput = styled.input`
     color: #54B6CB;
