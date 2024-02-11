@@ -31,18 +31,16 @@ const RateContent = () => {
                 const res = await Axios.get(
                     RATE_URL
                 )
-            
-                setRate(res.data);
 
                 console.log("성공결과", res.data);
 
-                setRateValue({
+                setRate({
                     usd: res.data && res.data[0].basePrice,
-                    usdRate: res.data && String(res.data[0].signedChangeRate).substring(0,5),
+                    usdRate: res.data && String(res.data[0].signedChangePrice).substring(0,5),
                     jpy: res.data && res.data[1].basePrice,
-                    jpyRate: res.data && String(res.data[1].signedChangeRate).substring(0,5),
+                    jpyRate: res.data && String(res.data[1].signedChangePrice).substring(0,5),
                     eur: res.data && res.data[2].basePrice,
-                    eurRate: res.data && String(res.data[2].signedChangeRate).substring(0,5),
+                    eurRate: res.data && String(res.data[2].signedChangePrice).substring(0,5),
                 })
 
                 return res;
@@ -51,8 +49,17 @@ const RateContent = () => {
             }
         }
 
+
+        // TODO 식 만들어서 return 해라..
+        let arr = [ rate && rate.usdRate, rate.jpyRate, rate.eurRate ];
+                
+        arr.map((data) => {
+            data && setRateValue(data.length === 1 ? data + ".00" : data)
+        })
+
         fetchData();
     }, []);
+
 
     return (
         <ContentWrap>
@@ -64,9 +71,9 @@ const RateContent = () => {
                         <InfoText>미국 / USD</InfoText>
                         <Icon src={Dollar} />
                     </TitleBox>
-                    <RateText>{rateValue && rateValue.usd}</RateText>
+                    <RateText>{rate && rate.usd}</RateText>
                     <DetailBox>
-                        <UpdateText>{rateValue && rateValue.usdRate}</UpdateText>
+                        <UpdateText>{rate && rate.usdRate.length === 1 ? rate.usdRate + ".00" : rate.usdRate}</UpdateText>
                     </DetailBox>
                 </RateBox>
                 {/* 일본 */}
@@ -75,9 +82,9 @@ const RateContent = () => {
                         <InfoText>엔화 / JPY</InfoText>
                         <Icon src={Yen} />
                     </TitleBox>
-                    <RateText>{rateValue && rateValue.jpy}</RateText>
+                    <RateText>{rate && rate.jpy}</RateText>
                     <DetailBox>
-                        <UpdateText>-{rateValue && rateValue.jpyRate}</UpdateText>
+                        <UpdateText>-{rate && rate.jpyRate.length === 1 ? rate.jpyRate + ".00" : rate.jpyRate}</UpdateText>
                     </DetailBox>
                 </RateBox>
                 {/* 유로 */}
@@ -86,9 +93,9 @@ const RateContent = () => {
                         <InfoText>유로 / EUR</InfoText>
                         <Icon src={Euro} />
                     </TitleBox>
-                    <RateText>{rateValue && rateValue.eur}</RateText>
+                    <RateText>{rate && rate.eur}</RateText>
                     <DetailBox>
-                        <UpdateText>{rateValue && rateValue.eurRate}</UpdateText>
+                        <UpdateText>{rate && rate.eurRate.length === 1 ? rate.eurRate + ".00" : rate.eurRate}</UpdateText>
                     </DetailBox>
                 </RateBox>
             </FlexContent>
