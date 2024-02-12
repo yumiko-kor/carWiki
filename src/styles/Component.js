@@ -122,6 +122,7 @@ export const TitleText = styled.span`
     color: ${props => props.color || "#464849"};
     font-size: ${props => props.fontSize || '20px'};
 	font-weight: ${props => props.fontWeight || '350'};
+    border-bottom: ${props => props.boderLine || "none"};
 `;
 
 export const InfoText = styled.span`
