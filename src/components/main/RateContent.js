@@ -2,7 +2,7 @@ import Axios from "axios";
 import { useState, useEffect } from "react";
 
 //component
-import { FlexContent, TitleText, TextS } from "../../styles/Component"; 
+import { FlexContent, TitleText, ProviderText } from "../../styles/Component"; 
 
 // style & img
 import styled from "styled-components";
@@ -151,13 +151,6 @@ const UpdateText = styled.span`
     color: #fff;
     font-weight: 350;
     font-size: 15px;
-`;
-
-const ProviderText = styled.div`
-    display: flex;
-    justify-content: right;
-    font-size: 12px;
-    margin: 0 15px;
 `;
 
 export default RateContent;

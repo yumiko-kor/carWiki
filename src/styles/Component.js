@@ -130,3 +130,10 @@ export const InfoText = styled.span`
     font-size: ${props => props.fontSize || '16px'};
 	font-weight: ${props => props.fontWeight || '350'};
 `;
+
+export const ProviderText = styled.div`
+    display: flex;
+    justify-content: right;
+    font-size: 12px;
+    margin: 0 15px;
+`;

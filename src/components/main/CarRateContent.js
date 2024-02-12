@@ -1,10 +1,12 @@
+import { useState, useEffect } from "react";
+import { CarListData } from "../../apis"
 
 // styled & img
 import styled from 'styled-components';
 import Icon from "../../assets/img/icon/car-check-light.png";
 
 // Component
-import { FlexContent, TextS } from '../../styles/Component';
+import { FlexContent, ProviderText } from '../../styles/Component';
 import RegistBtn from './RegistBtn';
 
 const CarRateContent = () => {
@@ -12,10 +14,17 @@ const CarRateContent = () => {
         "자동차 매매 건수", "자동차 등록 현황", "자동차 폐차 현황"
     ]
 
+    const API_KEY = process.env.REACT_APP_API_KEY;
 
-    ContentTitle.map((data) => {
-        console.log(data)
-    })
+    useEffect(() => {
+        const fetchData = async(API_KEY) => {
+            await CarListData(API_KEY);
+        }
+
+
+        fetchData();
+    },[])
+
 
     return (
         <>
@@ -48,8 +57,7 @@ const CarRateContent = () => {
                     })}
                 </RateContainer>
             </FlexContent>
-            
-    
+            <ProviderText>제공: 경기도 택시교통과</ProviderText>
             <RegistBtn />
         </>
     );
@@ -58,6 +66,7 @@ const CarRateContent = () => {
 const InfoWrap = styled.div`
     display: grid;
     text-align: center;
+    color: #464849;
 `;
 
 const TitleText = styled.span`
@@ -117,6 +126,7 @@ const DataWrap = styled.div`
     justify-content : center;
     align-items : center;
     margin: 40px 0;
+    color: #464849;
 `;
 
 const NumText = styled.span`

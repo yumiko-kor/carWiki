@@ -33,6 +33,7 @@ const NaviContainer = styled.div`
 	flex: 0 0 204px;
 	background: #ffffff;
 	align-self: stretch;
+    z-index: 1;
 `;
 
 const NaviItem = styled.div`
