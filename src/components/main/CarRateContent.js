@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { CarListData } from "../../apis"
+import { CarRegistData } from "../../apis"
 
 // styled & img
 import styled from 'styled-components';
@@ -10,21 +10,45 @@ import { FlexContent, ProviderText } from '../../styles/Component';
 import RegistBtn from './RegistBtn';
 
 const CarRateContent = () => {
+    const [ dataList, setDataList ] = useState({
+        totalData:"",
+        totalCnt: "",       // 총계
+        prvcarCnt: "",      // 승용 자가 총계
+        totalPrvcarCnt: "", // 모든 차량 자가용 총계
+    });
+
     const ContentTitle = [
         "자동차 매매 건수", "자동차 등록 현황", "자동차 폐차 현황"
     ]
-
     
     useEffect(() => {
         const token = process.env.GG_API_KEY;
 
-        const fetchData = async(token) => {
-            // await CarListData(token);
+        const fetchData = async(signgu_nm) => {
+            setDataList({
+                totalData: await CarRegistData(encodeURI("성남시 분당구"))
+            })
         }
 
         fetchData();
     },[])
+    
 
+    // 데이터 변환 xml -> txt
+    useEffect(() => {
+        const Convert = () => {
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(dataList.totalData, 'text/xml');
+
+            dataList.totalData && setDataList({
+                totalCnt : Number(xml.getElementsByTagName('TOTSUM')[0].innerHTML).toLocaleString('ko-KR'),
+                totalPrvcarCnt : Number(xml.getElementsByTagName('PRVTCAR_CAR_REGIST_CNT')[0].innerHTML).toLocaleString('ko-KR'),
+                prvcarCnt: Number(xml.getElementsByTagName('PSGCAR_PRVTCAR_CNT')[0].innerHTML).toLocaleString('ko-KR'),
+            })
+        }
+
+        Convert();
+    }, [dataList])
 
     return (
         <>
@@ -41,20 +65,32 @@ const CarRateContent = () => {
                     </TextWrap>
                 </InfoWrap>
 
-                {/* 자동차 api 디스플레이 */}
+                {/* TODO 맵 돌려야함 - 자동차 api 디스플레이 */}
                 <RateContainer>
-                    {ContentTitle.map((item)=> {
-                        return (
-                            <RateBox key={item} >
-                                <RateTitle>{item}</RateTitle>
-                                <IconBox><IconImg src={Icon} /></IconBox>
-                                <DataWrap>
-                                    <NumText>1,243</NumText>
-                                    <SubText>건</SubText>
-                                </DataWrap>
-                            </RateBox> 
-                        )
-                    })}
+                    <RateBox>
+                        <RateTitle>승용 자가용 총계</RateTitle>
+                        <IconBox><IconImg src={Icon} /></IconBox>                   
+                        <DataWrap>
+                            <NumText>{dataList.prvcarCnt && dataList.prvcarCnt}</NumText>
+                            <SubText>건</SubText>
+                        </DataWrap>
+                    </RateBox> 
+                    <RateBox>
+                        <RateTitle>등록 자가용 총계</RateTitle>
+                        <IconBox><IconImg src={Icon} /></IconBox>                   
+                        <DataWrap>
+                            <NumText>{dataList.totalPrvcarCnt && dataList.totalPrvcarCnt}</NumText>
+                            <SubText>건</SubText>
+                        </DataWrap>
+                    </RateBox> 
+                    <RateBox>
+                        <RateTitle>등록 자동차 총계</RateTitle>
+                        <IconBox><IconImg src={Icon} /></IconBox>                   
+                        <DataWrap>
+                            <NumText>{dataList.totalCnt && dataList.totalCnt}</NumText>
+                            <SubText>건</SubText>
+                        </DataWrap>
+                    </RateBox> 
                 </RateContainer>
             </FlexContent>
             <ProviderText>제공: 경기도 택시교통과</ProviderText>

@@ -1,5 +1,6 @@
 import { Axios } from "../utils/Axios";
 
+// 자동차 검색 api 호출
 export const CarListData = 
     async (token, registYy, registMt, vhctyAsortCode, registGrcCode, useFuelCode, cnmCode, prposSeNm, sexdstn, agrde, dsplvlCode, hmmdImpSeNm, prye) => 
     {
@@ -23,6 +24,25 @@ export const CarListData =
         console.log("성공", res.data);
         return res;
     }catch(e) {
-        console.log("오류: ", e);
+        if(e instanceof Error) {
+            throw new Error("CarListData Error", console.log(e));
+        }
+    }
+}
+
+// 자동차등록 집계 현황 -> 자동차 매매업 기준
+export const CarRegistData = async(signgu_nm) => {
+    
+    try{
+        const res = await Axios.get(
+            `https://openapi.gg.go.kr/CarRegistration?SIGNGU_NM=${signgu_nm}`
+            );
+            
+
+        return res.data;
+    }catch(e) {
+        if (e instanceof Error) {
+            throw new Error("CarRegistData Error", console.log(e));
+        }
     }
 }

@@ -32,8 +32,8 @@ const InfoText = styled.p`
 
 const IconBox = styled.img`
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     margin-bottom: 2em;
 `
 
