@@ -1,10 +1,10 @@
-import React from 'react';
+import { Notice } from "../../components/common/layout";
 
 const UserView = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <Notice />
+        </>
     );
 };
 

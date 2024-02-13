@@ -14,13 +14,13 @@ const CarRateContent = () => {
         "자동차 매매 건수", "자동차 등록 현황", "자동차 폐차 현황"
     ]
 
-    const API_KEY = process.env.REACT_APP_API_KEY;
-
+    
     useEffect(() => {
-        const fetchData = async(API_KEY) => {
-            await CarListData(API_KEY);
-        }
+        const token = process.env.GG_API_KEY;
 
+        const fetchData = async(token) => {
+            // await CarListData(token);
+        }
 
         fetchData();
     },[])
@@ -45,8 +45,8 @@ const CarRateContent = () => {
                 <RateContainer>
                     {ContentTitle.map((item)=> {
                         return (
-                            <RateBox>
-                                <RateTitle key={item} >{item}</RateTitle>
+                            <RateBox key={item} >
+                                <RateTitle>{item}</RateTitle>
                                 <IconBox><IconImg src={Icon} /></IconBox>
                                 <DataWrap>
                                     <NumText>1,243</NumText>
@@ -124,7 +124,7 @@ const IconImg = styled.img`
 const DataWrap = styled.div`
     display : flex;
     justify-content : center;
-    align-items : center;
+    align-items: self-end;
     margin: 40px 0;
     color: #464849;
 `;
@@ -137,6 +137,7 @@ const NumText = styled.span`
 const SubText = styled.span`
     font-size: 18px;
     font-weight: 350;
+    margin: 0 5px 4px;
 `
 
 export default CarRateContent;

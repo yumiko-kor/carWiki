@@ -33,18 +33,19 @@ function App() {
           </Route>
 
         {/* 자동차 관리 */}
-          <Route path="/car-management/">
-            <Route path="carview"  />
+          <Route path="/car-management/" element={<CarView />} >
+            {/* 등록페이지 */}
+            {/* <Route path="carview" /> */}
           </Route>
           
         {/* 유저 관리 */}
-          <Route path="/user-management/">
-            <Route path="userview"/>
+          <Route path="/user-management/" element={<UserView />}>
+            {/* <Route path="userview" element={<UserView />} /> */}
           </Route>
 
         {/* 직원 관리 */}
-          <Route path="/staff-management/">
-            <Route path="staffview"/>
+          <Route path="/staff-management/" element={<StaffView />} >
+            {/* <Route path="staffview" element={<StaffView />} /> */}
           </Route>
         </Route>
       </Routes>
