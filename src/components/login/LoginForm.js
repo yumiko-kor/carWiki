@@ -63,9 +63,7 @@ const LoginForm = () => {
             <FormWrapper onSubmit={handleSubmit(onSubmit)} >
                 <InputWrapper>
                     <LabelWrapper >
-                        <LabelName
-
-                        > * ID</LabelName>
+                        <LabelName> * ID</LabelName>
                         <TextInput
                             radius="50px"
                             fontSize="15px" 
@@ -90,6 +88,7 @@ const LoginForm = () => {
                             {...register('pw')}
                         />
                     </LabelWrapper>
+                    <GuideText>サンプルアカウント ( id: admin@carwiki.com / pw: 1234 )</GuideText>
                 </InputWrapper>
                 <BtnWrapper>
                     <ErrorText>{errorText}</ErrorText>
@@ -139,5 +138,10 @@ const ErrorText = styled.span`
     color: #FE6E6E;
 `
 
+const GuideText = styled.p`
+    font-weight: 340;
+    font-size: 13px;
+    color: #1EA1CA;
+`;
 
 export default LoginForm;

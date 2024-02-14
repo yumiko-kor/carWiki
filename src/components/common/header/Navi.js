@@ -5,7 +5,6 @@ import { SideBarData } from "../../../assets/data/SideBarData";
 import styled from "styled-components";
 
 const Navi = () => {
-
     return (
         <NaviContainer>
             <ul>
@@ -15,8 +14,8 @@ const Navi = () => {
                             <NavLink to={item.path} 
                                 style={({ isActive }) => ({
                                     borderLeft : isActive && "thick solid #54B6CB",
-                                    backgroundImage: isActive && "linear-gradient(90deg, rgba(223, 249, 255, 1), rgba(93, 226, 255, 0))",
-                                    backgroundSize: isActive && "cover"
+                                    backgroundImage: isActive && "linear-gradient(90deg, rgba(172, 241, 255, 0.44), rgba(93, 226, 255, 0))",
+                                    backgroundSize: isActive && "cover",
                                 })}
                             >
                                 <NaviItem>

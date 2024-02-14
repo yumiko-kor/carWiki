@@ -12,7 +12,7 @@ export const SideBarData = [
         icon: car
     },
     {
-        title: "회원 괸리",
+        title: "회원 관리",
         path: "/user-management",
         icon: user 
     },
