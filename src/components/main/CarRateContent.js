@@ -50,7 +50,7 @@ const CarRateContent = () => {
         Convert();
     }, [dataList])
 
-    return (
+    return (     
         <>
             <FlexContent $padding="2em 0 0 0" $justify="none">
                 <InfoWrap>

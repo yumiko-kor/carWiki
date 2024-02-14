@@ -31,9 +31,7 @@ const RateContent = () => {
                 const res = await Axios.get(
                     RATE_URL
                 )
-
-                console.log("성공결과", res.data);
-
+                
                 setRate({
                     usd: res.data && res.data[0].basePrice,
                     usdRate: res.data && String(res.data[0].signedChangePrice).substring(0,5),

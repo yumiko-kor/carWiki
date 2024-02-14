@@ -10,10 +10,13 @@ import { StaffView } from "./pages/StaffMangement";
 
 // style & Library
 import styled from "styled-components";
-import { MainLayout, LoginLayout, Layout } from "./components/common/layout";
+import { MainLayout, LoginLayout, Layout, Return } from "./components/common/layout";
 import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
+  const token = sessionStorage.getItem("token") ? true : false;
+
+
   return (
     <BrowserRouter basename="/carwiki" >
       <GlobalStyles />
@@ -27,7 +30,7 @@ function App() {
 
         {/* 메인 화면 -> Layout은 mainLayout으로 빠져야 함 */}
         {/* 메뉴 관리 -> 공통 Layout이 element가 되어야 함 */}
-        <Route element={<Layout />}>
+        <Route element={token ? <Return /> : <Layout />}>
           <Route>
             <Route path="/main" element={<Main />} />
           </Route>
