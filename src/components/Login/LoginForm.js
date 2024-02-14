@@ -23,7 +23,7 @@ const LoginForm = () => {
     })
     const [ authCheck, setAuthCheck ] = useRecoilState(auth);
     
-    const token = true;
+    const token = "Test Account";
     const navigate = useNavigate();
 
     // useForm
@@ -140,7 +140,7 @@ const ErrorText = styled.span`
 
 const GuideText = styled.p`
     font-weight: 340;
-    font-size: 13px;
+    font-size: 15px;
     color: #1EA1CA;
 `;
 
