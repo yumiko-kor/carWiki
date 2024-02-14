@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-
-
 import { SideBarData } from "../../../assets/data/SideBarData";
+
+// style && img
+import styled from "styled-components";
 
 const Navi = () => {
 
@@ -12,7 +12,13 @@ const Navi = () => {
                 {SideBarData.map((item, index) => {
                     return(
                         <li key={index}>
-                            <NavLink to={item.path}>
+                            <NavLink to={item.path} 
+                                style={({ isActive }) => ({
+                                    borderLeft : isActive && "thick solid #54B6CB",
+                                    backgroundImage: isActive && "linear-gradient(90deg, rgba(223, 249, 255, 1), rgba(93, 226, 255, 0))",
+                                    backgroundSize: isActive && "cover"
+                                })}
+                            >
                                 <NaviItem>
                                     <NaviLogo src={item.icon}></NaviLogo>
                                     <NaviTitle>{item.title}</NaviTitle>
@@ -36,6 +42,19 @@ const NaviContainer = styled.div`
     z-index: 1;
 `;
 
+const NavContoller = styled(NavLink)`
+	&:hover,
+	&.active {
+        border-left : thick solid #54B6CB;
+        background-image: linear-gradient(90deg, rgba(223, 249, 255, 1), rgba(93, 226, 255, 0));
+        background-size: cover;
+	}
+    &.active::after {
+        background-image: linear-gradient(90deg, rgba(223, 249, 255, 1), rgba(93, 226, 255, 0));
+        background-size: cover;
+	}
+`;
+
 const NaviItem = styled.div`
 	width: 204px;
     height: 60px;
@@ -44,20 +63,6 @@ const NaviItem = styled.div`
     align-items : center;
     vertical-align: middle;
     padding-left: 20px;
-
-	&:hover,
-	&.active {
-        border-left : thick solid #54B6CB;
-        background-image: linear-gradient(90deg, rgba(223, 249, 255, 1), rgba(93, 226, 255, 0));
-        background-size: cover;
-	}
-	&.active ~ ul {
-		display: block;
-	}
-	&.active:before {
-        background-image: linear-gradient(90deg, rgba(223, 249, 255, 1), rgba(93, 226, 255, 0));
-        background-size: cover;
-	}
 `;
 
 const NaviLogo = styled.img`
