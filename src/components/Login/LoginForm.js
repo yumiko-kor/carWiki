@@ -5,23 +5,26 @@ import { useNavigate } from "react-router-dom";
 import { AdminAuth } from "../../assets/data/AdminAuth";
 import { LoginValidation } from "./LoginValidation";
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRecoilState } from "recoil";
 
 // style
 import styled from "styled-components";
 import Button from "../common/button/Button";
 import { TextInput } from "../../styles/Component";
 
+// component
+import { auth } from "../../store/auth";
 
 const LoginForm = () => {
-    const navigate = useNavigate();
-
-    const token = "test";
-
     const [ errorText, setErrorText ] = useState("");
     const [ authInfo, setAuthInfo ] = useState({
         adminId : String(AdminAuth.map((data) => (data.id))),
         adminPw : String(AdminAuth.map((data) => (data.pw)))
     })
+    const [ authCheck, setAuthCheck ] = useRecoilState(auth);
+    
+    const token = true;
+    const navigate = useNavigate();
 
     // useForm
     const { 
@@ -44,13 +47,15 @@ const LoginForm = () => {
         ? authCheck = true : authCheck = false;
 
         if(authCheck) {
-            sessionStorage.setItem('token', token);
-            navigate('./main')
+            const getToken = sessionStorage.setItem('token', token);
+            setAuthCheck(getToken);
+
         }else {
             setErrorText("등록되지 않은 회원입니다.");
         }
+        
+        sessionStorage.getItem("token") &&  navigate('./main');
     }
-
 
     return (
         <>

@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Controller } from "react-hook-form";
 
@@ -10,12 +12,18 @@ import { StaffView } from "./pages/StaffMangement";
 
 // style & Library
 import styled from "styled-components";
+import { auth } from "./store/auth";
 import { MainLayout, LoginLayout, Layout, Return } from "./components/common/layout";
 import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
-  const token = sessionStorage.getItem("token") ? true : false;
+  const [ token, setToken ] = useRecoilState(auth);
 
+  // token 없을 시 로그인 안내페이지로 이동
+  useEffect(() => {
+    setToken(sessionStorage.getItem("token"));
+    console.log("token", token);
+  })
 
   return (
     <BrowserRouter basename="/carwiki" >
@@ -30,7 +38,7 @@ function App() {
 
         {/* 메인 화면 -> Layout은 mainLayout으로 빠져야 함 */}
         {/* 메뉴 관리 -> 공통 Layout이 element가 되어야 함 */}
-        <Route element={token ? <Return /> : <Layout />}>
+        <Route element={token ? <Layout /> : <Return />}>
           <Route>
             <Route path="/main" element={<Main />} />
           </Route>

@@ -1,7 +1,22 @@
+import { useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+
 import styled from "styled-components";
 import CarwikiLogo from "../../../assets/img/icon/CarWiki.png"
 
 const Return = () => {
+    const navigate = useNavigate();
+
+    const handleRetun = () => {
+        setTimeout(()=>{
+            navigate('./')
+        }, 2000);
+    }
+    
+    useEffect(() => {
+        !sessionStorage.getItem("token") && handleRetun();
+    })
+
     return (
         <FullContent> 
             <LogoBox src={CarwikiLogo} />
