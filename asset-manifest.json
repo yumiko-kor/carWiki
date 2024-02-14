@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/carwiki/static/js/main.72b85a12.js",
+    "main.js": "/carwiki/static/js/main.4d77120b.js",
     "static/media/loginBg.png": "/carwiki/static/media/loginBg.538025d4cd0070a5828c.png",
     "static/media/team.png": "/carwiki/static/media/team.aac68ade99001990b234.png",
     "static/media/team-blue.png": "/carwiki/static/media/team-blue.047b3e5b2e61c1310dec.png",
@@ -17,9 +17,9 @@
     "static/media/house-blue.png": "/carwiki/static/media/house-blue.652f037bc8b2e7d278b6.png",
     "static/media/naver.png": "/carwiki/static/media/naver.17dbebe1083ef8680797.png",
     "index.html": "/carwiki/index.html",
-    "main.72b85a12.js.map": "/carwiki/static/js/main.72b85a12.js.map"
+    "main.4d77120b.js.map": "/carwiki/static/js/main.4d77120b.js.map"
   },
   "entrypoints": [
-    "static/js/main.72b85a12.js"
+    "static/js/main.4d77120b.js"
   ]
 }
