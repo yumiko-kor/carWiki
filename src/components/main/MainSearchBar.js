@@ -57,7 +57,7 @@ const RightContainer = styled.div`
 const SearchBarContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
-    width: 800px;
+    width: 100%;
     height: 84px;
     border-radius: 15px;
     background-color: #fff;

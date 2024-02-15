@@ -22,7 +22,6 @@ function App() {
   // token 없을 시 로그인 안내페이지로 이동
   useEffect(() => {
     setToken(sessionStorage.getItem("token"));
-    console.log("token", token);
   })
 
   return (

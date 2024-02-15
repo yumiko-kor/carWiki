@@ -15,9 +15,6 @@ const CarView = () => {
             await CarListData(token);
         }
 
-        // console.log(encodeURI("남자"))
-        console.log(token)
-
         fetchData();
     },[])
 
