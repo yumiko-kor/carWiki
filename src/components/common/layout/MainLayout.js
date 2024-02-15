@@ -1,6 +1,6 @@
 // 컴포넌트
 import { Container } from "../../../styles/Component"; 
-import { MainSearchBar, RateContent, CarRateContent } from "../../main";
+import { MainSearchBar, RateContent, CarRateContent, RegistBtn } from "../../main";
 
 const MainLayout = () => {
     return (
@@ -8,6 +8,7 @@ const MainLayout = () => {
             <MainSearchBar />
             <RateContent />
             <CarRateContent />
+            <RegistBtn />
         </Container>
     );
 };

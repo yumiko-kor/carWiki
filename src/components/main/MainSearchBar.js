@@ -61,7 +61,7 @@ const SearchBarContainer = styled.div`
     height: 84px;
     border-radius: 15px;
     background-color: #fff;
-    box-shadow: 5px 5px #f1f1f166;
+    box-shadow: 8px 8px 15px #dfdfdf7a;
     margin: 1.5em 0;
 `;
 
@@ -71,7 +71,7 @@ const SearchInput = styled.input`
     height: 40px;
     width: 680px;
 	line-height: 18px;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 300;
     border-bottom : thin solid #98D4E1;
     margin: auto;

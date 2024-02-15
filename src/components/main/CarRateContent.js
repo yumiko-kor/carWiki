@@ -7,7 +7,6 @@ import Icon from "../../assets/img/icon/car-check-light.png";
 
 // Component
 import { FlexContent, ProviderText } from '../../styles/Component';
-import RegistBtn from './RegistBtn';
 
 const CarRateContent = () => {
     const [ dataList, setDataList ] = useState({
@@ -94,7 +93,6 @@ const CarRateContent = () => {
                 </RateContainer>
             </FlexContent>
             <ProviderText>제공: 경기도 택시교통과</ProviderText>
-            <RegistBtn />
         </>
     );
 };
