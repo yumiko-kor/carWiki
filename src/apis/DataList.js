@@ -21,7 +21,7 @@ export const CarListData =
             &hmmdImpSeNm=${hmmdImpSeNm ? hmmdImpSeNm : "%EA%B5%AD%EC%82%B0"}
             &prye=${prye ? prye : "2020"}`
         )
-        console.log("성공", res.data);
+        
         return res;
     }catch(e) {
         if(e instanceof Error) {

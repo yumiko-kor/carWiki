@@ -4,21 +4,25 @@ export const SideBarData = [
     {
         title: "홈",
         path: "/main",  
-        icon: main
+        icon: main,
+        focus: mainB,
     },
     {
         title: "자동차 관리",
         path: "/car-management",
-        icon: car
+        icon: car,
+        focus: carB
     },
     {
         title: "회원 관리",
         path: "/user-management",
-        icon: user 
+        icon: user,
+        focus: userB
     },
     {
         title: "직원 관리",
         path: "/staff-management",
-        icon: staff 
+        icon: staff,
+        focus: staffB
     }
 ];
