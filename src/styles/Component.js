@@ -101,8 +101,10 @@ export const HeaderContainer = styled.header`
 
 export const FlexContent = styled.div`
     display: flex;
+    align-items: center;
     justify-content:${props => props.$justify || 'space-between'};
     padding: ${props => props.$padding};
+    border-bottom: ${props => props.$bottomline || "none"};
 `;
 
 export const TextS = styled.span`

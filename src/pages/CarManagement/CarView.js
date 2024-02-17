@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { CarListData } from "../../apis";
 
-// 준비 중
-import { Notice } from "../../components/common/layout";
+// component
+import Pagination from "../../components/common/pagination/Paginatioin";
+import { CarViewTable, CarSearchBar, CarHeader } from "../../components/car-management";
 
 
 const CarView = () => {
@@ -20,7 +21,9 @@ const CarView = () => {
 
     return (
         <>
-            <Notice />
+            <CarHeader />
+            {/* <CarSearchBar /> */}
+            <CarViewTable />
         </>
     );
 };

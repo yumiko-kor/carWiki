@@ -17,28 +17,23 @@ import { MainLayout, LoginLayout, Layout, Return } from "./components/common/lay
 import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
-  const [ token, setToken ] = useRecoilState(auth);
-
-  // token 없을 시 로그인 안내페이지로 이동
-  useEffect(() => {
-    setToken(sessionStorage.getItem("token"));
-  })
+  const isToken = sessionStorage.getItem('token') ? true : false;
 
   return (
     <BrowserRouter basename="/carwiki" >
       <GlobalStyles />
       {/* <ControllerLink>토큰이 있다면 사용할 컴포넌트</ControllerLink> */}
-      
+      <ControllLink>{isToken ? <Link to="/main"/> : <Link to="/fail" />}</ControllLink>
       <Routes>
         {/* 로그인 페이지 */}
         <Route element={<LoginLayout />}>
           <Route path="/" element={<Login />} />
+          <Route path="/fail" element={<Return/>} />
         </Route>
-
         {/* 메인 화면 -> Layout은 mainLayout으로 빠져야 함 */}
         {/* 메뉴 관리 -> 공통 Layout이 element가 되어야 함 */}
-        <Route element={token ? <Layout /> : <Return />}>
-          <Route>
+        <Route>
+          <Route element={ <Layout /> }>
             <Route path="/main" element={<Main />} />
           </Route>
 
@@ -62,5 +57,10 @@ function App() {
     </BrowserRouter>
   );
 }
+
+const ControllLink = styled.div`
+	/* position: absolute; */
+`;
+
 
 export default App;

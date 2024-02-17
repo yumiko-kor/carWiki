@@ -20,10 +20,10 @@ import infoIcon from "../../../assets/img/icon/search-s.png"
     - text, type, disabled, handleClick, theme, size, width, height, bordercolor, name
 */
 
-const Button = ({ text, type = "button", disabled, handleClick, theme, size, width, height, bordercolor, name }) => {
+const Button = ({ display, text, type = "button", disabled, handleClick, theme, size, width, height, bordercolor, name }) => {
     return (
         <>
-            <Wrapper width={width}>
+            <Wrapper width={width} display={display}>
                 <ButtonStyle
                     onSubmit={e => e.preventDefault()}
                     type={type}
@@ -70,24 +70,32 @@ const sizeStyles = css`
 `;
 
 const ButtonStyle = styled.button`
-	border-radius: 5px;
-	display: inline-flex;
+	border-radius: 10px;
+	display: inline-block;
 	align-items: center;
 	justify-content: center;
-	width: ${props => props.width || '80px'};
-	height: ${props => props.height || '30px'};
+	width: ${props => props.width || '138px'};
+	height: ${props => props.height || '48px'};
 	min-width: fit-content;
-	color: #2c2c2c;
-	font-size: 14px;
+	color: #fff;
+	font-size: 16px;
 	${props => props.size && sizeStyles}
     
-    // 일반 버튼
+    // 취소 버튼
 	${props =>
-		props.theme === 'line' &&
+		props.theme === 'cancel' &&
 		css`
-			border: 1px solid #2c2c2c;
+			border: 1px	 solid #54B6CB;
 			background: transparent;
 		`}
+
+	// 등록 버튼
+    ${props =>
+		props.theme === 'register' &&
+		css`
+			background: #66C3D7;
+			color: #fff;
+	`}
 
     // 엑셀 버튼
     ${props =>
@@ -95,13 +103,15 @@ const ButtonStyle = styled.button`
 		css`
 			background: #2c2c2c;
 			color: #fff;
-		`}
-		${props =>
-		props.theme === 'disable' &&
-		css`
-			background: #d9d9d9;
-			color: #fff;
-		`}
+	`}
+
+	// 사용 불가
+	${props =>
+	props.theme === 'disable' &&
+	css`
+		background: #d9d9d9;
+		color: #fff;
+	`}
 
     // 상세보기 버튼
     ${props =>

@@ -1,5 +1,5 @@
 // Library
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { AdminAuth } from "../../assets/data/AdminAuth";
@@ -22,6 +22,8 @@ const LoginForm = () => {
         adminPw : String(AdminAuth.map((data) => (data.pw)))
     })
     const [ authCheck, setAuthCheck ] = useRecoilState(auth);
+    const [ modal, setModal ] = useState('hidden');
+    const [ isClick, setIsClick ] = useState(false);
     
     const token = "Test Account";
     const navigate = useNavigate();
@@ -56,34 +58,48 @@ const LoginForm = () => {
         
         sessionStorage.getItem("token") &&  navigate('./main');
     }
+    
+    const guidId = (e) => {
+        setModal("visible");
+    }
+    
+    const handleModal = (e) => {
+        setIsClick(true);
+        sessionStorage.setItem('token', token);
+    }
 
     return (
         <>
         {/* 로그인 폼 추가 */}
             <FormWrapper onSubmit={handleSubmit(onSubmit)} >
                 <InputWrapper>
+                    <GuideModal visibilty={modal}>
+                        <span>サンプルIDをお使いになりますか？</span>
+                        <ModalBtn onClick={handleModal}>はい</ModalBtn>
+                    </GuideModal>
                     <LabelWrapper >
                         <LabelName> * ID</LabelName>
                         <TextInput
+                            value={isClick ? "admin@carwiki.com" : ""}
+                            onFocus={e => guidId(e)}
                             radius="50px"
                             fontSize="15px" 
                             type="text"
                             $padding="16px 20px" 
                             name="id" 
                             placeholder= "ex) admin@carwiki.com"
-                            // errors={errors}
                             {...register('id')}
                         />
                     </LabelWrapper>
                     <LabelWrapper>
                         <LabelName> * PW</LabelName>
                         <TextInput
+                            value={isClick ? "1234" : ""}
                             radius="50px"
                             fontSize="15px" 
                             type="password"
                             $padding="16px 20px" 
                             name="pw" 
-                            // errors={errors}
                             placeholder="패스워드를 입력해주세요."
                             {...register('pw')}
                         />
@@ -142,6 +158,27 @@ const GuideText = styled.p`
     font-weight: 340;
     font-size: 15px;
     color: #1EA1CA;
+`;
+
+const GuideModal = styled.div`
+    visibility: ${props => props.visibilty || "visible"};
+    display: flex;
+    right: 130px;
+    top: 275px;
+    position: absolute;
+    justify-content: space-between;
+    width: 316px;
+    height: 61px;
+    border-radius: 10px;
+    background-color: #E3FAFF;
+    border: 1px solid #c0d1d9;
+    align-items: center;
+    padding: 15px 20px;
+`;
+
+const ModalBtn = styled.button`
+    font-size: 16px;
+    color: #259BC0;
 `;
 
 export default LoginForm;
