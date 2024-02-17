@@ -23,17 +23,17 @@ function App() {
     <BrowserRouter basename="/carwiki" >
       <GlobalStyles />
       {/* <ControllerLink>토큰이 있다면 사용할 컴포넌트</ControllerLink> */}
-      <ControllLink>{isToken ? <Link to="/main"/> : <Link to="/fail" />}</ControllLink>
+      {isToken ? <Link to="/main"/> : <Link to="/fail" />}
       <Routes>
         {/* 로그인 페이지 */}
         <Route element={<LoginLayout />}>
           <Route path="/" element={<Login />} />
-          <Route path="/fail" element={<Return/>} />
         </Route>
         {/* 메인 화면 -> Layout은 mainLayout으로 빠져야 함 */}
         {/* 메뉴 관리 -> 공통 Layout이 element가 되어야 함 */}
         <Route>
-          <Route element={ <Layout /> }>
+          <Route element={ isToken? <Layout /> : <Return />}>
+            <Route path="/fail" element={<Return/>} />
             <Route path="/main" element={<Main />} />
           </Route>
 
@@ -57,10 +57,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
-const ControllLink = styled.div`
-	/* position: absolute; */
-`;
-
 
 export default App;
