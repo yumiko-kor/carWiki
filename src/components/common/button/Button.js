@@ -87,6 +87,7 @@ const ButtonStyle = styled.button`
 		css`
 			border: 1px	 solid #54B6CB;
 			background: transparent;
+			color: #54B6CB;
 		`}
 
 	// 등록 버튼
@@ -95,6 +96,19 @@ const ButtonStyle = styled.button`
 		css`
 			background: #66C3D7;
 			color: #fff;
+	`}
+
+	// 검색 버튼
+	${props =>
+		props.theme === 'search' &&
+		css`
+			width: 115px;
+			height: 35px;
+			border-radius: 4px;
+			font-weight: 350	;
+			background-color: rgba(205, 251, 251, 0.11);
+			border: 1px	 solid #54B6CB;
+			color: #54B6CB;
 	`}
 
     // 엑셀 버튼

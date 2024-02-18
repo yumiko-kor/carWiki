@@ -85,7 +85,7 @@ const LoginForm = () => {
                             radius="50px"
                             fontSize="15px" 
                             type="text"
-                            $padding="16px 20px" 
+                            $padding="16px 20px"  
                             name="id" 
                             placeholder= "ex) admin@carwiki.com"
                             {...register('id')}

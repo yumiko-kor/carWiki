@@ -28,12 +28,12 @@ function App() {
         {/* 로그인 페이지 */}
         <Route element={<LoginLayout />}>
           <Route path="/" element={<Login />} />
+          <Route path="/fail" element={<Return/>} />
         </Route>
         {/* 메인 화면 -> Layout은 mainLayout으로 빠져야 함 */}
         {/* 메뉴 관리 -> 공통 Layout이 element가 되어야 함 */}
-        <Route>
-          <Route element={ isToken? <Layout /> : <Return />}>
-            <Route path="/fail" element={<Return/>} />
+        <Route element={<Layout /> } >
+          <Route>
             <Route path="/main" element={<Main />} />
           </Route>
 

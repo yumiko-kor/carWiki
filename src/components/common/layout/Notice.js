@@ -1,10 +1,18 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 // style & img
 import styled from "styled-components";
 import Icon  from "../../../assets/img/icon/arrangement.png"
 
+// 페이지 리턴
+import PageReturn from "../../../utils/PageReturn";
+
 const Notice = () => {
+    PageReturn();
+
     return (
-        <>
+        <>  
             <InfoContainer>
                 <IconBox src={Icon} />
                 <InfoText>

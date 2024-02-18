@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import { CarListData } from "../../apis";
+import PageReturn from "../../utils/PageReturn";
 
 // component
 import Pagination from "../../components/common/pagination/Paginatioin";
-import { CarViewTable, CarSearchBar, CarHeader } from "../../components/car-management";
+import { CarHeader, CarViewTable } from "../../components/car-management";
 
 
 const CarView = () => {
+    // 토큰 확인
+    PageReturn();
 
     // API 세팅 
     useEffect(() => {
@@ -22,7 +25,6 @@ const CarView = () => {
     return (
         <>
             <CarHeader />
-            {/* <CarSearchBar /> */}
             <CarViewTable />
         </>
     );

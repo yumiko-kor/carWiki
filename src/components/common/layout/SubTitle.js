@@ -4,12 +4,12 @@ import styled from "styled-components";
 import Button from "../button/Button";
 import { TitleText } from "../../../styles/Component";
 
-const SubTitle = ({ titleText, buttonText, display }) => {
+const SubTitle = ({ titleText, buttonText, display, handleClick }) => {
 
     return (
         <SubTitleContainer>
             <TitleText>{titleText}</TitleText>
-            <Button display={display} text={buttonText} theme="register" />
+            <Button display={display} text={buttonText} theme="register" handleClick={handleClick}/>
         </SubTitleContainer>
     );
 };
