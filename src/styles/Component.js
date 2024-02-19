@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import arrow from "../assets/img/icon/down-arrow-blue.png"
 
 // input & textArea
 export const Container = styled.div`
@@ -138,4 +139,17 @@ export const ProviderText = styled.div`
     justify-content: right;
     font-size: 12px;
     margin: 0 15px;
+`;
+
+export const SelectBox = styled.select`
+    width: 150px;
+    height: 35px;
+    font-size: 1px;
+    padding: 5px 30px 5px 10px;
+    border: solid thin #54B6CB;
+    outline: 0 none;
+    margin-right: 10px;
+    color: #1EA1CA;
+    background: url(${arrow}) calc(100% - 5px) center no-repeat;
+    background-size: 13px;
 `;

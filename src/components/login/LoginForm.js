@@ -73,7 +73,7 @@ const LoginForm = () => {
         {/* 로그인 폼 추가 */}
             <FormWrapper onSubmit={handleSubmit(onSubmit)} >
                 <InputWrapper>
-                    <GuideModal visibilty={modal}>
+                    <GuideModal $visibilty={modal}>
                         <span>サンプルIDをお使いになりますか？</span>
                         <ModalBtn onClick={handleModal}>はい</ModalBtn>
                     </GuideModal>
@@ -161,7 +161,7 @@ const GuideText = styled.p`
 `;
 
 const GuideModal = styled.div`
-    visibility: ${props => props.visibilty || "visible"};
+    visibility: ${props => props.$visibilty || "visible"};
     display: flex;
     right: 130px;
     top: 275px;

@@ -2,19 +2,18 @@ import styled from "styled-components";
 import Button from "../button/Button";
 import arrow from "../../../assets/img/icon/down-arrow-blue.png"
 
-const SearchBar = ({ optionData, }) => {
+const SearchBar = ({ optionData, justyfy}) => {
     return (
         <>
-            <Container>
+            <Container justyfy={justyfy}>
                 <RowBtn>내림차순</RowBtn>
-                <SelectBox>
+                <SelectCantaniner>
                     {
-                        optionData &&
                         optionData.map((data, index) => (
                             <OptionList key={index}>{data}</OptionList>
                         ))
                     }
-                </SelectBox>
+                </SelectCantaniner>
                 <SearchBarBox />
                 <Button theme="search" text="검색" />
             </Container>
@@ -24,6 +23,7 @@ const SearchBar = ({ optionData, }) => {
 
 const Container = styled.div`
     display: flex;
+    justify-content: ${props => props.justyfy || "right"};
     margin: 20px 10px;
 `;
 
@@ -34,8 +34,8 @@ const RowBtn = styled.button`
     margin-right: 20px;
 `;
 
-const SelectBox = styled.select`
-    width: 150px;
+const SelectCantaniner = styled.div`
+    /* width: 150px;
     height: 35px;
     padding: 5px 30px 5px 10px;
     border: solid thin #54B6CB;
@@ -43,10 +43,10 @@ const SelectBox = styled.select`
     margin-right: 10px;
     color: #1EA1CA;
     background: url(${arrow}) calc(100% - 5px) center no-repeat;
-    background-size: 13px;
+    background-size: 13px; */
 `;
 
-const OptionList = styled.option`
+const OptionList = styled.div`
 `;
 
 const SearchBarBox = styled.input`
