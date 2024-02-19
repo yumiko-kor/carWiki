@@ -1,5 +1,5 @@
 import { AdminAuth } from "./AdminAuth";
 import { SideBarData} from "./SideBarData";
-import { CarData } from "./carData";
+import { CarList } from "./CarList";
 
-export { AdminAuth, SideBarData, CarData };
+export { AdminAuth, SideBarData, CarList };

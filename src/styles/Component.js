@@ -15,6 +15,7 @@ export const Container = styled.div`
         align-items:${props.$align || 'flex-start'};
         justify-content:${props.$justify || 'flex-start'};
     `}}}
+	margin: 0;
     flex-direction: ${props => props.direction || "none"};
 `;
 
@@ -152,4 +153,76 @@ export const SelectBox = styled.select`
     color: #1EA1CA;
     background: url(${arrow}) calc(100% - 5px) center no-repeat;
     background-size: 13px;
+`;
+
+// table
+export const TableStyle = styled.table`
+	font-size: 13px;
+	color: #464849;
+;
+	position: relative;
+	&:before {
+		content: '';
+		width: 100%;
+		height: 1px;
+		background: rgba(164, 228, 242, 0.19);
+		display: block;
+		top: 0;
+		position: absolute;
+		left: 0;
+	}
+	tr:last-child {
+		border-bottom: 1px solid rgba(164, 228, 242, 0.19);
+	}
+	th,
+	td {
+		border-top: 1px solid rgba(164, 228, 242, 0.19);
+		border-left: 1px solid rgba(164, 228, 242, 0.19);
+		letter-spacing: 0;
+		vertical-align: middle;
+		padding: 5px 10px;
+		line-height: 1.4;
+		border-radius: 10px;
+	}
+	th:last-child,
+	td:last-child {
+		border-right: 1px solid rgba(164, 228, 242, 0.19);
+	}
+	th {
+		height: 56px;
+		background: #FFFFFF;
+		text-align: center;
+		font-weight: 350;
+		font-size: 13px;
+	}
+	td {
+		text-align: center;
+		height: 56px;
+		word-break: break-all;
+		font-weight: 350;
+		background: #FFFFFF;
+	}
+	button {
+		font-size: 13px;
+		width: 52px;
+		min-width: max-content;
+		padding: 0 10px;
+		height: 24px;
+	}
+	tr.table-line {
+		th,
+		td {
+			border-top: 1px solid rgba(164, 228, 242, 0.19);
+		}
+	}
+	input[type='checkbox'] ~ label {
+		padding-left: 0;
+		&:before {
+			position: relative;
+			transform: translate(0, 0);
+		}
+	}
+`;
+
+export const TableWrapper = styled.div`
 `;

@@ -113,9 +113,11 @@ const ButtonStyle = styled.button`
 
     // 엑셀 버튼
     ${props =>
-		props.theme === 'primary' &&
+		props.theme === 'export' &&
 		css`
-			background: #2c2c2c;
+			width: 132px;
+			height: 41px;
+			background: #54B6CB;
 			color: #fff;
 	`}
 

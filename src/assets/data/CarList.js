@@ -1,4 +1,4 @@
-export const CarData = [
+export const CarList = [
     {"no":1,"cnmCode":93462,"vhctyAsortCode":1,"registGrcCode":12,"dsplvlCode":1,"prye":2003,"sexdstn":2,"agrde":7},
     {"no":2,"cnmCode":21552,"vhctyAsortCode":4,"registGrcCode":10,"dsplvlCode":4,"prye":1994,"sexdstn":2,"agrde":3},
     {"no":3,"cnmCode":72801,"vhctyAsortCode":3,"registGrcCode":5,"dsplvlCode":2,"prye":2010,"sexdstn":1,"agrde":7},
