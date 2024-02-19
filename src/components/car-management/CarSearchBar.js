@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import SearchBar from "../common/searchbar/SearchBar";
-
 import { SelectBox } from "../../styles/Component";
 
 const CarSearchBar = () => {

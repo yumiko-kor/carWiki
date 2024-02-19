@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
+import RouteChangeTracker from "./utils/RouteChangeTracker"; // 유저 추적
+import { useLocation } from "react-router-dom";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Controller } from "react-hook-form";
 

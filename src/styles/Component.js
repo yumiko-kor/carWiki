@@ -144,7 +144,7 @@ export const ProviderText = styled.div`
 export const SelectBox = styled.select`
     width: 150px;
     height: 35px;
-    font-size: 1px;
+    font-size: 15px;
     padding: 5px 30px 5px 10px;
     border: solid thin #54B6CB;
     outline: 0 none;

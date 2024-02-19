@@ -4,9 +4,11 @@ import styled from "styled-components";
 import CarSearchBar from "./CarSearchBar";
 
 const CarViewTable = () => {
+    
     return (
         <Container>
             <CarSearchBar />
+
         </Container>
     );
 };
