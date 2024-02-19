@@ -6,7 +6,7 @@ import { SelectBox } from "../../styles/Component";
 const CarSearchBar = () => {
 
     const optionList = [
-        { value: "cnmCode", name: "치명코드" },
+        { value: "cnmCode", name: "차명코드" },
         { value: "vhctyAsortCode", name: "차종 코드" },
         { value: "registGrcCode", name: "등록 지역 코드" },
         { value: "dsplvlCode", name: "배기량 코드" },
