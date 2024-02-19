@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import RouteChangeTracker from "./utils/RouteChangeTracker"; // 유저 추적
+import RouteChangeTracker from "./utils/RouteChangeTracker";
 import { useLocation } from "react-router-dom";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Controller } from "react-hook-form";
+import ReactGA from "react-ga";
+import { UsePaginationState } from "react-table";
 
 // page
 import Main from "./pages/Main";
@@ -19,10 +21,17 @@ import { MainLayout, LoginLayout, Layout, Return } from "./components/common/lay
 import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
+  const gaTrackingId = process.env.REACT_APP_GA_TRACKING_ID;
+
+  useEffect(() => {
+      ReactGA.initialize(`${process.env.gaTrackingId}`)
+  }, [])
+
   const isToken = sessionStorage.getItem('token') ? true : false;
 
   return (
     <BrowserRouter basename="/carwiki" >
+      <RouteChangeTracker />
       <GlobalStyles />
       {/* <ControllerLink>토큰이 있다면 사용할 컴포넌트</ControllerLink> */}
       {isToken ? <Link to="/main"/> : <Link to="/fail" />}
