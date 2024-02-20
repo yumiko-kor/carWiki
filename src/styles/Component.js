@@ -226,3 +226,17 @@ export const TableStyle = styled.table`
 
 export const TableWrapper = styled.div`
 `;
+
+
+// 모달 관련 공통 css
+export const BtnWrapper = styled.div`
+    display: flex;
+    justify-content: right;
+`;
+
+export const CloseBtn = styled.button`
+    width: 18px;
+    height: 18px;
+    background: url(${props => props.$img}) 50% 50% no-repeat;
+    z-index: 30;
+`;

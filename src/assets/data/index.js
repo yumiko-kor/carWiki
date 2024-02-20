@@ -1,7 +1,7 @@
 import { AdminAuth } from "./AdminAuth";
 import { SideBarData} from "./SideBarData";
 import { CarList } from "./CarList";
-import { locationLabel, dspvlCodeLabel, vhctyAsortCodeLabel } from "./CarListLabel";
+import { locationLabel, dspvlCodeLabel, vhctyAsortCodeLabel, carSubject } from "./CarListLabel";
 
 export { 
     AdminAuth, 
@@ -9,5 +9,6 @@ export {
     CarList, 
     locationLabel, 
     dspvlCodeLabel, 
-    vhctyAsortCodeLabel 
+    vhctyAsortCodeLabel,
+    carSubject
 };

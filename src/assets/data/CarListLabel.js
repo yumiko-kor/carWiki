@@ -34,4 +34,15 @@ export const vhctyAsortCodeLabel = [
     { value: 2, name: "승합" },
     { value: 3, name: "화물" },
     { value: 4, name: "특수" },
-]
+];
+
+export const carSubject = [
+    { value:"no", name: "번호" },
+    { value:"vhctyAsortCode", name: "차종코드" },
+    { value:"cnmCode", name: "차명코드" },
+    { value:"dsplvlCode", name: "배기량 코드" },
+    { value:"prye", name: "등록년도" },
+    { value:"registGrcCode", name: "등록 지역" },
+    { value:"sexdstn", name: "성별" },
+    { value:"agrde", name: "연령" },
+];
