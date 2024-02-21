@@ -15,7 +15,6 @@ import { CarList, locationLabel, dspvlCodeLabel, vhctyAsortCodeLabel, carSubject
 const CarViewTable = () => {
     const [ detail, setDetail ] = useState([]);
     const [ detailModal, setDetailModal ] = useState("hidden");
-    const [ detailArray, setDetailArray ] = useState([]);
     const dataList = CarList;
 
     // 모달
@@ -32,27 +31,20 @@ const CarViewTable = () => {
         e.preventDefault();
 
         dataList.map((item) => (
-            (item.no === data) && setDetail(item)
+            (item.no === data) && setDetail([
+                { name: "no" , value: item.no },
+                { name: "차량 종류", value: item.vhctyAsortCode },
+                { name: "차량 코드", value: item.cnmCode },
+                { name: "배기 코드", value: item.dsplvlCode },
+                { name: "모델년도", value: item.prye },
+                { name: "지역" , value: item.registGrcCode },
+                { name: "성별" , value: item.sexdstn },
+                { name: "연령대" , value: item.agrde }
+            ])
         ))
 
         handleModal();
     }
-
-    locationLabel.map((data) => {
-        console.log("locationLabel: ", data.value);
-    })
-
-
-    console.log("상세 정보 : " , detail, Object.entries(detail));
-
-    const convertDetail = () => {
-        let list = [];
-
-        list.push(Object.entries(detail))
-        setDetailArray(list);
-    }
-
-    console.log("변환 데이터 ", detailArray)
 
     return (
         <>
@@ -78,30 +70,28 @@ const CarViewTable = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {
-                                dataList.map((data, index) => (
-                                    <Fragment key={index}>
-                                        <tr>
-                                            <td>{data.no}</td>
-                                            {vhctyAsortCodeLabel.map((item) => { 
-                                                return(
-                                                data.vhctyAsortCode === item.value &&
-                                                <td>{item.name}</td>)
-                                            })}
-                                            <td>{data.cnmCode}</td>
-                                            {dspvlCodeLabel.map((item) => { 
-                                                return(
-                                                data.dsplvlCode === item.value &&
-                                                <td>{item.name}</td>)
-                                            })}
-                                            <td>{data.prye}년</td>
-                                            <td>{data.sexdstn === 1 ? "여성" : "남성"}</td>
-                                            <td>{data.agrde}0대</td>
-                                            <td><Icon $img={InfoIcon} onClick={e => handleDetail(e, data.no)} /></td>
-                                        </tr>
-                                    </Fragment>
-                                ))
-                            }
+                            {dataList.map((data, index) => (
+                                <Fragment key={index}>
+                                    <tr>
+                                        <td>{data.no}</td>
+                                        {vhctyAsortCodeLabel.map((item, index) => { 
+                                            return(
+                                            data.vhctyAsortCode === item.value &&
+                                            <td key={index}>{item.name}</td>)
+                                        })}
+                                        <td>{data.cnmCode}</td>
+                                        {dspvlCodeLabel.map((item, index) => { 
+                                            return(
+                                            data.dsplvlCode === item.value &&
+                                            <td key={index}>{item.name}</td>)
+                                        })}
+                                        <td>{data.prye}년</td>
+                                        <td>{data.sexdstn === 1 ? "여성" : "남성"}</td>
+                                        <td>{data.agrde}0대</td>
+                                        <td><Icon $img={InfoIcon} onClick={e => handleDetail(e, data.no)} /></td>
+                                    </tr>
+                                </Fragment>
+                            ))}
                         </tbody>
                     </TableStyle>
                 </TableWrapper>
@@ -113,14 +103,21 @@ const CarViewTable = () => {
                     <BtnWrapper>
                         <CloseBtn $img={closeIcon} onClick={handleModal}/>
                     </BtnWrapper>
+                    <TitleWrap>
+                        <ModalTitle>
+                            <ModalTitle></ModalTitle>
+                            <ModalSubTitle>상세정보</ModalSubTitle>
+                        </ModalTitle>
+                    </TitleWrap>
                     <ContentsWrap>
-                        { 
-                            Object.entries(detail).map((data, index) => (
-                            <InfoBox>
-                                <InfoTitle key={index}>{data}</InfoTitle>
-                                    <InfoContent>{data[1]}</InfoContent>
-                            </InfoBox>
-                        ))}
+                        {detail && detail.map((data, index) => {
+                            return(
+                                <InfoBox key={index}>
+                                    <InfoTitle>{data.name}</InfoTitle>
+                                    <InfoContent>{data.value}</InfoContent>
+                                </InfoBox>
+                            )
+                        })}
                     </ContentsWrap>
                 </ModalWrap>
             </ModalBg>
@@ -195,10 +192,26 @@ const InfoTitle = styled.span`
 
 const InfoContent = styled.span`
     color: #505050;
-    font-weight: 300;
+    font-weight: bold;
     font-size: 16px;
 `;
 
+const TitleWrap = styled.div`
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    margin: 20px;
+`;
 
+const ModalTitle = styled.span`
+    color: #464849;
+    font-size: 20px;
+`;
+
+const ModalSubTitle = styled.span`
+    color: #46D0D0;
+    font-size: 30px;
+    font-weight: 300;
+`;
 
 export default CarViewTable;
