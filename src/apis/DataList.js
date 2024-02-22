@@ -46,3 +46,22 @@ export const CarRegistData = async(signgu_nm) => {
         }
     }
 }
+
+
+// json data api
+export const CarJsonData = async(page_size) => {
+
+    try {
+        const res = await Axios.get(
+            `http://localhost:9696/carlist?_limit=${page_size}`
+        )
+
+        return res.data;
+
+    }catch(e) {
+        if(e instanceof Error) {
+            throw new Error("CarJsonData Error", e);
+        }
+    }
+
+}

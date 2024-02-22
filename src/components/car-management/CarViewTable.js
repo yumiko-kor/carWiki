@@ -1,4 +1,5 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { CarJsonData } from "../../apis/DataList";
 
 // 스타일
 import styled from "styled-components";
@@ -7,6 +8,7 @@ import closeIcon from "../../assets/img/icon/close.png";
 
 // component
 import { TableWrapper, TableStyle, BtnWrapper, CloseBtn } from "../../styles/Component";
+import Pagination from "../common/pagination/Paginatioin";
 import CarSearchBar from "./CarSearchBar";
 import Button from "../common/button/Button";
 import DetailModal from "../common/modal/DetailModal";
@@ -15,7 +17,28 @@ import { CarList, locationLabel, dspvlCodeLabel, vhctyAsortCodeLabel, carSubject
 const CarViewTable = () => {
     const [ detail, setDetail ] = useState([]);
     const [ detailModal, setDetailModal ] = useState("hidden");
-    const dataList = CarList;
+    const [ dataList, setDataList ] = useState([]);
+
+    const totalPages = 10;
+    const [ loading, setLoading ] = useState(true);
+    const [ pages, setPages ] = useState([]);
+    const [ currentPage, setCurrentPage ] = useState(0);
+
+    useEffect(() => {        
+        
+        fetchData(10);
+    }, [])
+
+    // 리스트 조회
+    const fetchData = async (page_size) => {
+        setDataList(
+            await CarJsonData(
+                page_size
+            ),
+        )
+    }
+    
+    console.log("dataList: ", dataList);
 
     // 모달
     const handleModal = () => {
@@ -54,6 +77,7 @@ const CarViewTable = () => {
                 <BtnBox>
                     <Button theme="export" text="Exel Export" />
                 </BtnBox>
+
                 {/* 테이블구역 */}
                 <TableWrapper>
                     <TableStyle>
@@ -70,7 +94,7 @@ const CarViewTable = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {dataList.map((data, index) => (
+                            {dataList && dataList.map((data, index) => (
                                 <Fragment key={index}>
                                     <tr>
                                         <td>{data.no}</td>
@@ -96,6 +120,9 @@ const CarViewTable = () => {
                     </TableStyle>
                 </TableWrapper>
             </Container>
+
+            {/* 페이지 네이션 */}
+            <Pagination />
 
             {/* 모달 */}
             <ModalBg $display={detailModal}>

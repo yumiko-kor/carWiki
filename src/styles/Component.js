@@ -189,15 +189,16 @@ export const TableStyle = styled.table`
 		border-right: 1px solid rgba(164, 228, 242, 0.19);
 	}
 	th {
-		height: 56px;
+		height: 45px;
 		background: #FFFFFF;
 		text-align: center;
 		font-weight: 350;
 		font-size: 13px;
+		color: #54b6cb;
 	}
 	td {
 		text-align: center;
-		height: 56px;
+		height: 45px;
 		word-break: break-all;
 		font-weight: 350;
 		background: #FFFFFF;
@@ -225,6 +226,8 @@ export const TableStyle = styled.table`
 `;
 
 export const TableWrapper = styled.div`
+	height: 500px;
+	overflow: auto;
 `;
 
 
